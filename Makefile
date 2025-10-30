@@ -5,6 +5,10 @@ run-app:
 	./venv/bin/pip install -r requirements.txt
 	./venv/bin/python app.py
 
+.PHONY: clean
+clean:
+	rm -rf venv
+
 .PHONY: build-docker
 build-docker:
 	docker build -t gothenburg-2025-container-workshop .
