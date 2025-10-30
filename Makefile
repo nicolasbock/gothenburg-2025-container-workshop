@@ -4,3 +4,11 @@ run-app:
 	./venv/bin/pip install --upgrade pip
 	./venv/bin/pip install -r requirements.txt
 	./venv/bin/python app.py
+
+.PHONY: build-docker
+build-docker:
+	docker build -t gothenburg-2025-container-workshop .
+
+.PHONY: run-docker
+run-docker:
+	docker run --publish 8080:8080 --rm gothenburg-2025-container-workshop:latest
