@@ -12,9 +12,15 @@ environment:
 
 services:
   app:
+    override: replace
     command: python3 usr/bin/app.py
     startup: enabled
+
+checks:
+  app-check:
     override: replace
+    http:
+      url: http://localhost:8080/
 
 parts:
   app:
