@@ -9,6 +9,8 @@ run-app:
 clean:
 	rm -rf venv
 	rockcraft clean
+	docker kill gothenburg-docker || true
+	docker kill gothenburg-rock || true
 	docker rmi gothenburg-2025-container-workshop:docker || true
 	docker rmi gothenburg-2025-container-workshop:rock || true
 
