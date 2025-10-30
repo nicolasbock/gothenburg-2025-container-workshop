@@ -9,6 +9,7 @@ platforms:
 
 environment:
   GREETING: "Hello Rock"
+  PORT: "8081"
 
 services:
   app:
@@ -20,7 +21,7 @@ checks:
   app-check:
     override: replace
     http:
-      url: http://localhost:8080/
+      url: http://localhost:8081/
 
 parts:
   app:

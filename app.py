@@ -11,4 +11,4 @@ def hello():
 
 if __name__ == '__main__':
     # Run on a non-default port to require explicit configuration
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=os.environ.get("PORT", 8000))

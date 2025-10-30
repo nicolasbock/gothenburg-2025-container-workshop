@@ -11,5 +11,6 @@ COPY app.py .
 
 RUN pip3 install -r requirements.txt --root /
 ENV GREETING="Hello Docker"
-EXPOSE 8080
+ENV PORT=8080
+EXPOSE $PORT
 CMD ["python3", "app.py"]

@@ -18,7 +18,13 @@ build-docker:
 
 .PHONY: run-docker
 run-docker: build-docker
-	docker run --publish 8080:8080 --rm gothenburg-2025-container-workshop:docker
+	docker kill gothenburg-docker || true
+	docker run --publish 8080:8080 --rm \
+	    --name gothenburg-docker \
+	    --detach \
+	    gothenburg-2025-container-workshop:docker
+	sleep 2
+	docker logs gothenburg-docker
 
 .PHONY: build-rock
 build-rock:
@@ -29,4 +35,11 @@ build-rock:
 
 .PHONY: run-rock
 run-rock: build-rock
-	docker run --publish 8080:8080 --rm gothenburg-2025-container-workshop:rock
+	docker kill gothenburg-rock || true
+	docker run --publish 8081:8081 --rm \
+	    --name gothenburg-rock \
+	    --detach \
+	    gothenburg-2025-container-workshop:rock
+	sleep 2
+	docker logs gothenburg-rock
+	docker exec gothenburg-rock pebble logs
