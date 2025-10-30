@@ -13,6 +13,8 @@
 
 ## The application
 
+([app.py](app.py))
+
 ```python
 from flask import Flask
 import os
@@ -32,7 +34,7 @@ if __name__ == '__main__':
 
 ## Imperative Build: The Dockerfile
 
-Create a functional Dockerfile for the application.
+Create a functional [`Dockerfile`](Dockerfile) for the application.
 
 1. Install dependencies
 2. Set the environment variable for the app (can be overridden at runtime)
@@ -41,7 +43,7 @@ Create a functional Dockerfile for the application.
 
 ## Declarative Build: The rockcraft.yaml
 
-Convert the Dockerfile logic to a `rockcraft.yaml` and build a Rock.
+Convert the [`Dockerfile`](Dockerfile) logic to a [`rockcraft.yaml`](rockcraft.yaml) and build a Rock.
 
 Key Concepts:
 
@@ -59,5 +61,5 @@ Key Concepts:
 
 ### Deep Dive
 
-- Compare docker history <docker_image> vs. inspecting the contents of the built ROCK
-- Discuss the layering model, the presence of Pebble in the ROCK, and how environment variables/commands are handled
+- Compare docker history <docker_image> vs. inspecting the contents of the built Rock
+- Discuss the layering model, the presence of Pebble in the Rock, and how environment variables/commands are handled
