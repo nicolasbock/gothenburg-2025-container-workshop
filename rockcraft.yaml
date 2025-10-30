@@ -12,7 +12,7 @@ environment:
 
 services:
   app:
-    command: opt/app/bin/python3 /opt/app/bin/app.py
+    command: python3 usr/bin/app.py
     startup: enabled
     override: replace
 
@@ -21,11 +21,11 @@ parts:
     plugin: nil
     source: .
     build-packages:
+      - python3
       - python3-venv
+      - python3-pip
+    stage-packages:
+      - python3
     override-build: |
-      INSTALL_DIR=${CRAFT_PART_INSTALL}/opt/app
-      mkdir --parents ${INSTALL_DIR}
-      python3 -m venv ${INSTALL_DIR}
-      install -m 755 app.py ${INSTALL_DIR}/bin/app.py
-      ${INSTALL_DIR}/bin/pip install --upgrade pip
-      ${INSTALL_DIR}/bin/pip install -r requirements.txt
+      pip install -r requirements.txt --root ${CRAFT_PART_INSTALL}
+      install -D -m 755 app.py ${CRAFT_PART_INSTALL}/usr/bin/app.py
