@@ -9,7 +9,7 @@ WORKDIR /app
 COPY requirements.txt .
 COPY app.py .
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install -r requirements.txt --root /
 ENV GREETING="Hello Docker"
 EXPOSE 8080
 CMD ["python3", "app.py"]
