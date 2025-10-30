@@ -47,7 +47,7 @@ Convert the [`Dockerfile`](Dockerfile) logic to a [`rockcraft.yaml`](rockcraft.y
 
 Key Concepts:
 
-- base image
+- base image ([Dockerfile](Dockerfile#L1))
 - parts section for installation
   **CRITICAL DIFFERENCE**: Explaining Pebble as the default entrypoint and defining services in the services section instead of using `CMD/ENTRYPOINT`.
 - pack the image (`rockcraft pack`)
